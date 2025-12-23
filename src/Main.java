@@ -4,22 +4,130 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        // ══════════════════════════════════════════════════════════
+        // Création du Zoo avec constructeur paramétré
+        // ══════════════════════════════════════════════════════════
+        Zoo myZoo = new Zoo("Safari Park", "Paris", 20);
+
+        // ══════════════════════════════════════════════════════════
+        // Création des animaux avec constructeur paramétré
+        // ══════════════════════════════════════════════════════════
+        Animal lion = new Animal("Felidae", "Simba", 5, true);
+        Animal elephant = new Animal("Elephantidae", "Dumbo", 10, true);
+        Animal eagle = new Animal("Accipitridae", "Aigle Royal", 3, false);
+        Animal tiger = new Animal("Felidae", "Shere Khan", 7, true);
+        Animal dolphin = new Animal("Delphinidae", "Flipper", 8, true);
+
+        // ══════════════════════════════════════════════════════════
+        // Ajouter les animaux au zoo
+        // ══════════════════════════════════════════════════════════
+        myZoo.animals[0] = lion;
+        myZoo.animals[1] = elephant;
+        myZoo.animals[2] = eagle;
+        myZoo.animals[3] = tiger;
+        myZoo.animals[4] = dolphin;
+
+        // ══════════════════════════════════════════════════════════
+        // Test de displayZoo()
+        // ══════════════════════════════════════════════════════════
+        System.out.println("=== Test displayZoo() ===");
+        myZoo.displayZoo();
+
+        // ══════════════════════════════════════════════════════════
+        // Test de toString() pour Zoo
+        // ══════════════════════════════════════════════════════════
+        System.out.println("\n=== Test toString() Zoo ===");
+        System.out.println(myZoo);
+
+        // ══════════════════════════════════════════════════════════
+        // Test de toString() pour Animal
+        // ══════════════════════════════════════════════════════════
+        System.out.println("\n=== Test toString() Animal ===");
+        System.out.println(lion);
+        System.out.println(elephant);
+        System.out.println(eagle);
+
+        // ══════════════════════════════════════════════════════════
+        // Afficher tous les animaux du zoo
+        // ══════════════════════════════════════════════════════════
+        System.out.println("\n=== Tous les animaux du zoo ===");
+        for (int i = 0; i < myZoo.animals.length; i++) {
+            if (myZoo.animals[i] != null) {
+                System.out.println(myZoo.animals[i]);
+            }
+        }
+
+        /** ══════════════════════════════════════════════════════════
+        // Affichage
+        // ══════════════════════════════════════════════════════════
+        System.out.println("=== Mon Zoo ===");
+        System.out.println("Nom : " + myZoo.name);
+        System.out.println("Ville : " + myZoo.city);
+        System.out.println("Cages : " + myZoo.nbrCages);
+
+        System.out.println("\n=== Animaux ===");
+        System.out.println("1. " + lion.name + " (" + lion.family + ")");
+        System.out.println("2. " + elephant.name + " (" + elephant.family + ")");
+        System.out.println("3. " + eagle.name + " (" + eagle.family + ")");
+        System.out.println("4. " + tiger.name + " (" + tiger.family + ")");
+        System.out.println("5. " + dolphin.name + " (" + dolphin.family + ")");
+
+        /**
+        // ══════════════════════════════════════════════════════════
+        // Création d'un objet Animal
+        // ══════════════════════════════════════════════════════════
+        Animal lion = new Animal();
+
+        // Affectation des valeurs aux attributs
+        lion.family = "Felidae";
+        lion.name = "Simba";
+        lion.age = 5;
+        lion.isMammal = true;
+
+
+        // ══════════════════════════════════════════════════════════
+        // Création d'un objet Zoo
+        // ══════════════════════════════════════════════════════════
+        Zoo myZoo = new Zoo();
+
+        // Affectation des valeurs aux attributs
+        myZoo.name = "Safari Park";
+        myZoo.city = "Paris";
+        myZoo.nbrCages = 20;
+        myZoo.animals = new Animal[25];  // Tableau de 25 animaux max
+
+        // Ajouter le lion au zoo
+        myZoo.animals[0] = lion;
+
+        // ══════════════════════════════════════════════════════════
+        // Affichage
+        // ══════════════════════════════════════════════════════════
+        System.out.println("=== Animal ===");
+        System.out.println("Nom : " + lion.name);
+        System.out.println("Famille : " + lion.family);
+        System.out.println("Âge : " + lion.age + " ans");
+        System.out.println("Mammifère : " + lion.isMammal);
+
+        System.out.println("\n=== Zoo ===");
+        System.out.println("Nom : " + myZoo.name);
+        System.out.println("Ville : " + myZoo.city);
+        System.out.println("Cages : " + myZoo.nbrCages);
 
         Scanner scanner = new Scanner(System.in);
 
         // Créer un objet ZooManagement
-        ZooManagement zoo = new ZooManagement();
+        Zoo zoo = new Zoo();
 
         // ══════════════════════════════════════════
         // Saisie du nom
         // ══════════════════════════════════════════
         System.out.print("Entrez le nom du zoo : ");
-        zoo.zooName = scanner.nextLine();
+        zoo.name = scanner.nextLine();
 
-        while (zoo.zooName.isEmpty()) {
+        while (zoo.name.isEmpty()) {
             System.out.println("Erreur : Le nom ne peut pas être vide !");
             System.out.print("Entrez le nom du zoo : ");
-            zoo.zooName = scanner.nextLine();
+            zoo.name = scanner.nextLine();
         }
 
         // ══════════════════════════════════════════
@@ -50,8 +158,8 @@ public class Main {
         // ══════════════════════════════════════════
         System.out.println("\n================================");
         System.out.println("Zoo créé avec succès !");
-        System.out.println("Nom du zoo : " + zoo.zooName);
+        System.out.println("Nom du zoo : " + zoo.name);
         System.out.println("Nombre de cages : " + zoo.nbrCages);
-        System.out.println("================================");
+        System.out.println("================================");*/
     }
 }
