@@ -1,11 +1,14 @@
-import java.util.Scanner;
+package tn.esprit.main;
+
+import tn.esprit.entities.Animal;
+import tn.esprit.entities.Zoo;
 
 // Classe principale - point d'entrée du programme
 public class Main {
 
     public static void main(String[] args) {
         // ══════════════════════════════════════════════════════════
-        // Création du Zoo avec constructeur paramétré
+        // Création du tn.esprit.entities.Zoo avec constructeur paramétré
         // ══════════════════════════════════════════════════════════
         Zoo myZoo = new Zoo("Safari Park", "Paris");
         Zoo myZoo2 = new Zoo("Aquarium", "Lyon");
@@ -46,7 +49,7 @@ public class Main {
         myZoo.displayAnimals();
 
         Zoo plusGrand = Zoo.compareZoo(myZoo, myZoo2);
-        System.out.println("\nLe zoo avec le plus d'animaux : " + plusGrand.name);
+        System.out.println("\nLe zoo avec le plus d'animaux : " + plusGrand.getName());
 
         /** ══════════════════════════════════════════════════════════
         // test searchAnimals()
@@ -76,15 +79,15 @@ public class Main {
         myZoo.displayZoo();
 
         // ══════════════════════════════════════════════════════════
-        // Test de toString() pour Zoo
+        // Test de toString() pour tn.esprit.entities.Zoo
         // ══════════════════════════════════════════════════════════
-        System.out.println("\n=== Test toString() Zoo ===");
+        System.out.println("\n=== Test toString() tn.esprit.entities.Zoo ===");
         System.out.println(myZoo);
 
         // ══════════════════════════════════════════════════════════
-        // Test de toString() pour Animal
+        // Test de toString() pour tn.esprit.entities.Animal
         // ══════════════════════════════════════════════════════════
-        System.out.println("\n=== Test toString() Animal ===");
+        System.out.println("\n=== Test toString() tn.esprit.entities.Animal ===");
         System.out.println(lion);
         System.out.println(elephant);
         System.out.println(eagle);
@@ -102,7 +105,7 @@ public class Main {
         // ══════════════════════════════════════════════════════════
         // Affichage
         // ══════════════════════════════════════════════════════════
-        System.out.println("=== Mon Zoo ===");
+        System.out.println("=== Mon tn.esprit.entities.Zoo ===");
         System.out.println("Nom : " + myZoo.name);
         System.out.println("Ville : " + myZoo.city);
         System.out.println("Cages : " + myZoo.nbrCages);
@@ -116,9 +119,9 @@ public class Main {
 
         /**
         // ══════════════════════════════════════════════════════════
-        // Création d'un objet Animal
+        // Création d'un objet tn.esprit.entities.Animal
         // ══════════════════════════════════════════════════════════
-        Animal lion = new Animal();
+        tn.esprit.entities.Animal lion = new tn.esprit.entities.Animal();
 
         // Affectation des valeurs aux attributs
         lion.family = "Felidae";
@@ -128,15 +131,15 @@ public class Main {
 
 
         // ══════════════════════════════════════════════════════════
-        // Création d'un objet Zoo
+        // Création d'un objet tn.esprit.entities.Zoo
         // ══════════════════════════════════════════════════════════
-        Zoo myZoo = new Zoo();
+        tn.esprit.entities.Zoo myZoo = new tn.esprit.entities.Zoo();
 
         // Affectation des valeurs aux attributs
         myZoo.name = "Safari Park";
         myZoo.city = "Paris";
         myZoo.nbrCages = 20;
-        myZoo.animals = new Animal[25];  // Tableau de 25 animaux max
+        myZoo.animals = new tn.esprit.entities.Animal[25];  // Tableau de 25 animaux max
 
         // Ajouter le lion au zoo
         myZoo.animals[0] = lion;
@@ -144,13 +147,13 @@ public class Main {
         // ══════════════════════════════════════════════════════════
         // Affichage
         // ══════════════════════════════════════════════════════════
-        System.out.println("=== Animal ===");
+        System.out.println("=== tn.esprit.entities.Animal ===");
         System.out.println("Nom : " + lion.name);
         System.out.println("Famille : " + lion.family);
         System.out.println("Âge : " + lion.age + " ans");
         System.out.println("Mammifère : " + lion.isMammal);
 
-        System.out.println("\n=== Zoo ===");
+        System.out.println("\n=== tn.esprit.entities.Zoo ===");
         System.out.println("Nom : " + myZoo.name);
         System.out.println("Ville : " + myZoo.city);
         System.out.println("Cages : " + myZoo.nbrCages);
@@ -158,7 +161,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // Créer un objet ZooManagement
-        Zoo zoo = new Zoo();
+        tn.esprit.entities.Zoo zoo = new tn.esprit.entities.Zoo();
 
         // ══════════════════════════════════════════
         // Saisie du nom
@@ -199,7 +202,7 @@ public class Main {
         // Affichage
         // ══════════════════════════════════════════
         System.out.println("\n================================");
-        System.out.println("Zoo créé avec succès !");
+        System.out.println("tn.esprit.entities.Zoo créé avec succès !");
         System.out.println("Nom du zoo : " + zoo.name);
         System.out.println("Nombre de cages : " + zoo.nbrCages);
         System.out.println("================================");*/
