@@ -1,14 +1,12 @@
-package tn.esprit.entities;// tn.esprit.entities.Animal.java
+package tn.esprit.entities;// tn.tn.esprit.entities.Animal.java
 
 public class Animal {
 
-    // ══════════════════════════════════════════════════════════════
-    // ATTRIBUTS PRIVÉS (Encapsulation)
-    // ══════════════════════════════════════════════════════════════
-    private String family;
-    private String name;
-    private int age;
-    private boolean mammal;
+    // Attributs protégés (visibles par les sous-classes)
+    protected String family;
+    protected String name;
+    protected int age;
+    protected boolean mammal;
 
     // ══════════════════════════════════════════════════════════════
     // CONSTRUCTEUR PAR DÉFAUT
@@ -79,7 +77,7 @@ public class Animal {
     // ══════════════════════════════════════════════════════════════
     @Override
     public String toString() {
-        return "tn.esprit.entities.Animal{" +
+        return "tn.tn.esprit.entities.Animal{" +
                 "name='" + name + '\'' +
                 ", family='" + family + '\'' +
                 ", age=" + age +

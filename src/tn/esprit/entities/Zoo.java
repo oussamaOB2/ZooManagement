@@ -1,4 +1,4 @@
-package tn.esprit.entities;// tn.esprit.entities.Zoo.java
+package tn.esprit.entities;// tn.tn.esprit.entities.Zoo.java
 
 public class Zoo {
 
@@ -64,7 +64,7 @@ public class Zoo {
             this.name = name;
         } else {
             System.out.println("❌ Erreur : Le nom du zoo ne peut pas être vide !");
-            this.name = "tn.esprit.entities.Zoo Sans Nom";  // Valeur par défaut
+            this.name = "tn.tn.esprit.entities.Zoo Sans Nom";  // Valeur par défaut
         }
     }
 
@@ -159,7 +159,7 @@ public class Zoo {
     // ══════════════════════════════════════════════════════════════
     @Override
     public String toString() {
-        return "tn.esprit.entities.Zoo{" +
+        return "tn.tn.esprit.entities.Zoo{" +
                 "name='" + name + '\'' +
                 ", city='" + city + '\'' +
                 ", nbrAnimals=" + nbrAnimals +
