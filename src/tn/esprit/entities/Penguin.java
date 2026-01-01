@@ -4,7 +4,7 @@ public class Penguin extends Aquatic{
     protected float swimmingDepth;
 
     public Penguin(){
-        super();
+
     }
 
     public Penguin (String family, String name, int age, boolean mammal, String habitat, float swimmingDepth){
@@ -18,6 +18,11 @@ public class Penguin extends Aquatic{
 
     public float setSwimmingDepth(float swimmingDepth) {
         return this.swimmingDepth = swimmingDepth;
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("This penguin is swimming.");
     }
 
     @Override

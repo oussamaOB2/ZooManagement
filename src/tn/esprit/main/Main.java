@@ -7,18 +7,19 @@ public class Main {
 
     public static void main(String[] args) {
 
+
         // ══════════════════════════════════════════════════════════
         // Instruction 21 : Instanciation avec constructeurs par défaut
         // ══════════════════════════════════════════════════════════
         System.out.println("=== Instruction 21 : Constructeurs par défaut ===\n");
 
-        Aquatic aquatic = new Aquatic();
+
         Terrestrial terrestrial = new Terrestrial();
         Dolphin dolphin = new Dolphin();
         Penguin penguin = new Penguin();
 
         System.out.println("Objets créés avec constructeurs par défaut :");
-        System.out.println("aquatic    : " + aquatic);
+
         System.out.println("terrestrial: " + terrestrial);
         System.out.println("dolphin    : " + dolphin);
         System.out.println("penguin    : " + penguin);
@@ -28,7 +29,7 @@ public class Main {
         // ══════════════════════════════════════════════════════════
         System.out.println("\n=== Instruction 22 : Constructeurs paramétrés ===\n");
 
-        Aquatic whale = new Aquatic("Cetacea", "Moby Dick", 30, true, "Ocean");
+        Aquatic whale = new Dolphin("Cetacea", "Moby Dick", 30, true, "Ocean", 75.5f);
         Terrestrial lion = new Terrestrial("Felidae", "Simba", 5, true, 4);
         Dolphin flipper = new Dolphin("Delphinidae", "Flipper", 8, true, "Sea", 35.5f);
         Penguin pingu = new Penguin("Spheniscidae", "Pingu", 3, false, "Antarctic", 100.0f);
@@ -38,6 +39,8 @@ public class Main {
         System.out.println("lion    : " + lion);
         System.out.println("flipper : " + flipper);
         System.out.println("pingu   : " + pingu);
+
+
 
         // ══════════════════════════════════════════════════════════
         // Instruction 23 : toString() redéfini
@@ -71,6 +74,12 @@ public class Main {
         // ══════════════════════════════════════════════════════════
         Zoo myZoo = new Zoo("Safari Park", "Paris");
         Zoo myZoo2 = new Zoo("Aquarium", "Lyon");
+
+        myZoo.addAquaticAnimal(flipper);
+        myZoo.addAquaticAnimal(pingu);
+
+        myZoo.aquaticAnimals[0].swim();
+        myZoo.aquaticAnimals[1].swim();
 
         // ══════════════════════════════════════════════════════════
         // Création des animaux avec constructeur paramétré
@@ -109,6 +118,10 @@ public class Main {
 
         Zoo plusGrand = Zoo.compareZoo(myZoo, myZoo2);
         System.out.println("\nLe zoo avec le plus d'animaux : " + plusGrand.getName());
+
+        // ══════════════════════════════════════════════════════════
+        System.out.println("\n=== Test nbrAquatics ===\n");
+        myZoo.displayNumberOfAquaticsByType();
 
         /** ══════════════════════════════════════════════════════════
         // test searchAnimals()

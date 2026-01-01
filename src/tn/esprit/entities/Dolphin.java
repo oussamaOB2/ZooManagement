@@ -4,7 +4,7 @@ public class Dolphin extends Aquatic{
     protected float swimmingSpeed ;
 
     public Dolphin(){
-        super();
+
     }
 
     public Dolphin (String family, String name, int age, boolean mammal, String habitat, float swimmingSpeed){

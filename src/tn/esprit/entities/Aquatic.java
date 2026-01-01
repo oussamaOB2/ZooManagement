@@ -1,13 +1,13 @@
 package tn.esprit.entities;
 
-public class Aquatic extends Animal {
+public abstract class Aquatic extends Animal {
 
     // Attribut spécifique (protégé pour les sous-classes)
     protected String habitat;
 
     // Constructeur par défaut
     public Aquatic() {
-        super();  // Appelle Animal()
+          // Appelle Animal()
     }
 
     // Constructeur paramétré
@@ -27,8 +27,16 @@ public class Aquatic extends Animal {
     }
 
     // Méthode swim() - Instruction 24
-    public void swim() {
-        System.out.println("This aquatic animal is swimming.");
+    public abstract void swim() ;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Aquatic other = (Aquatic) o;
+        return name.equals(other.name) &&
+                age == other.age &&
+                habitat.equals(other.habitat);
     }
 
     @Override
