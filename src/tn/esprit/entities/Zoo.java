@@ -1,11 +1,13 @@
 package tn.esprit.entities;// tn.tn.esprit.entities.Zoo.java
 
+import tn.esprit.exceptions.ZooFullException;
+
 public class Zoo {
 
     // ══════════════════════════════════════════════════════════════
     // CONSTANTE DE CLASSE (Instruction 14)
     // ══════════════════════════════════════════════════════════════
-    static final int NUMBER_OF_CAGES = 25;
+    static final int NUMBER_OF_CAGES = 3;
 
     // ══════════════════════════════════════════════════════════════
     // ATTRIBUTS PRIVÉS (Encapsulation)
@@ -127,17 +129,17 @@ public class Zoo {
     // ══════════════════════════════════════════════════════════════
     // MÉTHODE addAnimal() - Instruction 10
     // ══════════════════════════════════════════════════════════════
-    public boolean addAnimal(Animal animal) {
+    public void addAnimal(Animal animal) throws ZooFullException {
         // Vérifier si le tableau est plein
-        if (isfull()) {   //Instruction 17 : Modification de la méthode addAnimal
-            System.out.println("❌ Le zoo est plein ! Impossible d'ajouter " + animal.getName());
-            return false;
+        if (isfull()) {
+            throw new ZooFullException("The Zoo is full");
+            /** Instruction 17 : Modification de la méthode addAnimal
+            System.out.println("❌ Le zoo est plein ! Impossible d'ajouter " + animal.getName());*/
         }
 
         // Vérification 2 : L'animal existe-t-il déjà ? (NOUVEAU)
         if (searchAnimal(animal) != -1) {
             System.out.println("❌ " + animal.getName() + " est déjà dans le zoo.");
-            return false;
         }
 
         // Ajouter l'animal à la prochaine position libre
@@ -145,7 +147,6 @@ public class Zoo {
         nbrAnimals++;  // Incrémenter le compteur
 
         System.out.println("✅ " + animal.getName() + " a été ajouté au zoo.");
-        return true;
     }
 
     public boolean removeAnimal(Animal animal) {

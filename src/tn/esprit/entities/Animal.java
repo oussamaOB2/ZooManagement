@@ -1,5 +1,7 @@
 package tn.esprit.entities;// tn.tn.esprit.entities.Animal.java
 
+import tn.esprit.exceptions.InvalidAgeException;
+
 public class Animal {
 
     // Attributs protégés (visibles par les sous-classes)
@@ -21,7 +23,7 @@ public class Animal {
         this.family = family;
         this.name = name;
         // Validation de l'âge dans le constructeur aussi
-        this.setAge(age);
+        this.age = age ;
         this.mammal = mammal;
     }
 
@@ -59,14 +61,13 @@ public class Animal {
     }
 
     // VALIDATION : L'âge ne peut pas être négatif
-    public void setAge(int age) {
-        if (age >= 0) {
-            this.age = age;
-        } else {
-            System.out.println("❌ Erreur : L'âge ne peut pas être négatif !");
-            this.age = 0;  // Valeur par défaut
+    public void setAge(int age) throws InvalidAgeException {
+            if (age >= 0) {
+                this.age = age;
+            } else {
+                throw new InvalidAgeException("the age must be positive");
+            }
         }
-    }
 
     public void setMammal(boolean mammal) {
         this.mammal = mammal;

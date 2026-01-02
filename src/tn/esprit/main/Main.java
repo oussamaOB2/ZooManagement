@@ -1,6 +1,8 @@
 package tn.esprit.main;
 
 import tn.esprit.entities.*;
+import tn.esprit.exceptions.InvalidAgeException;
+import tn.esprit.exceptions.ZooFullException;
 
 // Classe principale - point d'entrée du programme
 public class Main {
@@ -84,7 +86,16 @@ public class Main {
         // ══════════════════════════════════════════════════════════
         // Création des animaux avec constructeur paramétré
         // ══════════════════════════════════════════════════════════
-        Animal lion1 = new Animal("Felidae", "Simba", 5, true);
+        Animal lion1 = new Animal();
+        lion1.setName("Simba");
+        try {
+            lion1.setAge(8);
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+        lion1.setFamily("Cats");
+        lion1.setMammal(true);
+
         Animal elephant = new Animal("Elephantidae", "Dumbo", 10, true);
         Animal eagle = new Animal("Accipitridae", "Aigle Royal", 3, false);
         Animal tiger = new Animal("Felidae", "Shere Khan", 7, true);
@@ -104,11 +115,42 @@ public class Main {
         // ══════════════════════════════════════════════════════════
         System.out.println("=== Test addAnimal() ===\n");
 
-        myZoo.addAnimal(lion);
-        myZoo.addAnimal(elephant);
-        myZoo.addAnimal(eagle);
-        myZoo.addAnimal(tiger);
-        myZoo2.addAnimal(dolphin1);
+        try {
+            myZoo.addAnimal(lion1);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println(myZoo.getName() + " contient " + myZoo.getNbrAnimals() + " animaux");
+        }
+        try {
+            myZoo.addAnimal(elephant);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println(myZoo.getName() + " contient " + myZoo.getNbrAnimals() + " animaux");
+        }
+        try {
+            myZoo2.addAnimal(dolphin1);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println(myZoo.getName() + " contient " + myZoo.getNbrAnimals() + " animaux");
+        }
+        try {
+            myZoo.addAnimal(tiger);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println(myZoo.getName() + " contient " + myZoo.getNbrAnimals() + " animaux");
+        }
+        try {
+            myZoo.addAnimal(eagle);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println(myZoo.getName() + " contient " + myZoo.getNbrAnimals() + " animaux");
+        }
+
 
         // ══════════════════════════════════════════════════════════
         // test displayAnimals()
