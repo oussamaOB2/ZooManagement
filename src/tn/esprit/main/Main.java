@@ -1,5 +1,6 @@
 package tn.esprit.main;
 
+import tn.esprit.Food;
 import tn.esprit.entities.*;
 import tn.esprit.exceptions.InvalidAgeException;
 import tn.esprit.exceptions.ZooFullException;
@@ -8,7 +9,6 @@ import tn.esprit.exceptions.ZooFullException;
 public class Main {
 
     public static void main(String[] args) {
-
 
         // ══════════════════════════════════════════════════════════
         // Instruction 21 : Instanciation avec constructeurs par défaut
@@ -42,8 +42,6 @@ public class Main {
         System.out.println("flipper : " + flipper);
         System.out.println("pingu   : " + pingu);
 
-
-
         // ══════════════════════════════════════════════════════════
         // Instruction 23 : toString() redéfini
         // ══════════════════════════════════════════════════════════
@@ -70,6 +68,32 @@ public class Main {
 
         System.out.print("pingu.swim()   : ");
         pingu.swim();
+
+        // ══════════════════════════════════════════════════════════
+        // INSTRUCTION 38 : Test des Interfaces
+        // ══════════════════════════════════════════════════════════
+        System.out.println("\n=== INSTRUCTION 38 : Test des Interfaces ===\n");
+
+        // Utiliser des noms différents pour éviter les conflits
+        Dolphin testDolphin = new Dolphin("Delphinidae", "Flipper", 10, true, "Océan", 40.0f);
+        Penguin testPenguin = new Penguin("Spheniscidae", "Pingu", 3, false, "Antarctique", 50.0f);
+        Terrestrial testBear = new Terrestrial("Ursidae", "Baloo", 8, true, 4);
+
+        // Test Carnivore (Dolphin)
+        System.out.println("--- Test Dolphin (Carnivore) ---");
+        testDolphin.eatMeat(Food.MEAT);
+
+            // Test Carnivore (Penguin)
+        System.out.println("\n--- Test Penguin (Carnivore) ---");
+        testPenguin.eatMeat(Food.MEAT);
+
+        // Test Omnivore (Terrestrial)
+        System.out.println("\n--- Test Terrestrial (Omnivore) ---");
+        testBear.eatMeat(Food.MEAT);
+        testBear.eatPlant(Food.PLANT);
+        testBear.eatPlantAndMeat(Food.BOTH);
+
+        System.out.println("\n=== Fin Test Instruction 38 ===");
 
         // ══════════════════════════════════════════════════════════
         // Création du tn.tn.esprit.entities.Zoo avec constructeur paramétré
@@ -319,6 +343,6 @@ public class Main {
         System.out.println("tn.tn.esprit.entities.Zoo créé avec succès !");
         System.out.println("Nom du zoo : " + zoo.name);
         System.out.println("Nombre de cages : " + zoo.nbrCages);
-        System.out.println("================================");*/
+        System.out.println("================================"); */
     }
 }

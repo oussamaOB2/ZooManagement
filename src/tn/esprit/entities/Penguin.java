@@ -1,7 +1,19 @@
 package tn.esprit.entities;
 
+import tn.esprit.Food;
+
 public class Penguin extends Aquatic{
     protected float swimmingDepth;
+
+    // Peut redéfinir eatMeat si besoin
+    @Override
+    public void eatMeat(Food meat) {
+        if (meat == Food.MEAT) {
+            System.out.println(getName() + " le pingouin mange des poissons");
+        } else {
+            System.out.println(getName() + " préfère le poisson !");
+        }
+    }
 
     public Penguin(){
 

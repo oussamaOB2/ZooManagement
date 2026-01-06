@@ -1,6 +1,9 @@
 package tn.esprit.entities;
 
-public abstract class Aquatic extends Animal {
+import tn.esprit.Interface.Carnivore;
+import tn.esprit.Food;
+
+public abstract class Aquatic extends Animal implements Carnivore <Food> {
 
     // Attribut spécifique (protégé pour les sous-classes)
     protected String habitat;
@@ -14,6 +17,15 @@ public abstract class Aquatic extends Animal {
     public Aquatic(String family, String name, int age, boolean mammal, String habitat) {
         super(family, name, age, mammal);  // Appelle Animal(...)
         this.habitat = habitat;
+    }
+
+    @Override
+    public void eatMeat(Food meat) {
+        if (meat == Food.MEAT) {
+            System.out.println(getName() + " mange de la viande (poissons, crustacés...)");
+        } else {
+            System.out.println(getName() + " ne mange que de la viande !");
+        }
     }
 
     // Getter
